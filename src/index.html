@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Mosaic Generator</title>
+    <link rel="icon" href="assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="js/render.js"></script>    
+    <script src="js/upload.js"></script>
+    <script src="js/img_zoom.js"></script>
+    <script src="js/helpers.js"></script>
+    <script src="js/buttons.js"></script>
+</head>
+<body class="font-monospace">
+    <h2><b>Photo Mosaic Generator</b></h2>
+    <br>
+    <h6 id="initial-advice">Select image to generate pixel art:</h6>
+    <form>
+        <input class="form-control" type="file" id="imageInput" accept="image/*">
+    </form>
+    <br>
+    <br>
+    <div id="btn-container">
+        <div class="btn-label-container">
+            <span class="btn-group-label">Detail</span>
+            <div class="btn-group btn-group-sm" role="group" aria-label="detail">
+                <button class="btn btn-outline-primary" id="lessDetailButton">—</button>
+                <button class="btn btn-outline-primary" id="resetDetailButton">reset</button>
+                <button class="btn btn-outline-primary" id="moreDetailButton">+</button>
+            </div>
+        </div>
+        <div class="btn-label-container">
+            <span class="btn-group-label">Zoom</span>
+            <div class="btn-group btn-group-sm" role="group" aria-label="zoom">
+                <button class="btn btn-outline-primary" id="minusButton">—</button>
+                <button class="btn btn-outline-primary" id="resetZoomButton">reset</button>
+                <button class="btn btn-outline-primary" id="plusButton">+</button>
+            </div>
+        </div>
+    </div>
+    <div id="grid-container"></div>
+    <p id="advice"></p>
+</body>
+</html>

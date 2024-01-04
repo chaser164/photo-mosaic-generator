@@ -1,0 +1,64 @@
+:root {
+  --image-width: 900px;
+  --scale-factor: 10;
+  --img-helpers-visibility: none;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
+  padding-bottom: 100px;
+  padding-top: 50px;
+}
+
+.btn-label-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn-group-label {
+  font-size: 15pt;
+
+}
+
+.btn-outline-primary:disabled {
+    background-color: lightgray;
+    border: 1px solid lightgray;
+    color: gray !important;
+    cursor: not-allowed;
+}
+  
+.grid-row {
+  display: flex;
+  justify-content: center; /* Align grid items in the center */
+}
+  
+.grid-item {
+  margin: 0px; /* Adjust the margin as needed */
+  object-fit: cover; /* Ensure images maintain aspect ratio within grid items */
+  transition: transform 0.2s ease;
+}
+  
+.zoomed {
+  transform: scale(var(--scale-factor));
+}
+
+#grid-container {
+  padding: 50px;
+  width: var(--image-width);
+  min-height: 50%;
+  text-align: center;
+}
+
+#btn-container {
+  width: 30vw;
+  min-width: 300px;
+  display: var(--img-helpers-visibility); /* either "none" or "flex" */
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
