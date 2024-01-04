@@ -1,18 +1,23 @@
 const targetWidth = 175;
+let touchMoved = false;
 
 document.addEventListener('DOMContentLoaded', () => {
   const parentContainer = document.getElementById('grid-container');
 
-  parentContainer.addEventListener('mousedown', handleZoom);
-  parentContainer.addEventListener('mouseup', handleZoomEnd);
-  parentContainer.addEventListener('mouseout', handleZoomEnd);
+  parentContainer.addEventListener('mouseup', handleZoom);
+  parentContainer.addEventListener('touchend', handleZoom);
 
-  // Touch events
-  parentContainer.addEventListener('touchstart', handleZoom);
-  parentContainer.addEventListener('touchend', handleZoomEnd);
-  parentContainer.addEventListener('touchcancel', handleZoomEnd);
+  // Dealing with scrolling action
+  parentContainer.addEventListener('touchmove', function(event) {
+    touchMoved = true;
+  });
 
   function handleZoom(event) {
+    // Guard against scrolling action
+    if(touchMoved) {
+      touchMoved = false;
+      return;
+    }
     const targetImg = event.target.closest('img');
     // Return on non-image event
     if (!targetImg) return;
@@ -22,12 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.documentElement.style.setProperty('--scale-factor', scaleFactor);
 
     targetImg.classList.add('zoomed');
-  }
-
-  function handleZoomEnd(event) {
-    const targetImg = event.target.closest('img');
-    if (targetImg) {
+    setTimeout(() => {
       targetImg.classList.remove('zoomed');
-    }
+    }, 750);
   }
 });
+

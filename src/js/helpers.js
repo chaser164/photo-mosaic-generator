@@ -161,7 +161,7 @@ function populateGrid(pixelArray) {
       }
       // Tack on advice
       const advice = document.getElementById('advice');
-      advice.textContent = 'Click and hold pixels to enlarge';
+      advice.textContent = 'Select pixel to enlarge it';
     })
     .catch(error => {
       // Handle errors
